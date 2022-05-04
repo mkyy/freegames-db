@@ -20,4 +20,23 @@ export const WelcomeWrapper = styled.div`
   span {
     color: #23cf5c;
   }
+
+  @media (max-width: 425px) {
+    width: 100%;
+
+    .btns {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      padding: 0 30px;
+    }
+
+    p {
+      padding: 0 10px;
+    }
+  }
 `;

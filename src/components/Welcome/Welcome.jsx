@@ -12,7 +12,7 @@ export const Welcome = () => {
           Para todos amantes de jogos, encontre os mais ultimos lançamentos e os mais jogados da
           atualidade!
         </p>
-        <div>
+        <div className='btns'>
           <Button variant='success' href='#lancamentos' size='lg' className='m-2'>
             Ultimos lançamentos
           </Button>
