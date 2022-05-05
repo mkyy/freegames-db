@@ -14,7 +14,7 @@ export function topsGet() {
   return axios
     .request(options)
     .then(function (response) {
-      return response.data;
+      return response.data.filter((_, index) => index < 6);
     })
     .catch(function (error) {
       console.error(error);

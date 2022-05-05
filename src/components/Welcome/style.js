@@ -2,10 +2,13 @@ import styled from 'styled-components';
 
 export const WelcomeContainer = styled.div`
   width: 100%;
-  background-color: var(--bg);
-  background-size: cover;
-  background-image: url(paladins.png);
+  background-color: #1c1e22;
+
   height: 283px;
+  border-bottom: 1px solid #131313;
+  border-top: 1px solid #131313;
+
+  margin-bottom: 30px;
 `;
 
 export const WelcomeWrapper = styled.div`
@@ -16,6 +19,8 @@ export const WelcomeWrapper = styled.div`
   width: 1024px;
   height: 283px;
   margin-inline: auto;
+  background-size: cover;
+  background-image: url(paladins.png);
 
   span {
     color: #23cf5c;

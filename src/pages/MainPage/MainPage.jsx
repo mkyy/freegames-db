@@ -6,18 +6,16 @@ import ChevronRight from 'react-bootstrap-icons/dist/icons/chevron-right';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
-import { axiosGet } from '../../services/Get';
 import { recentGet } from '../../services/GetRecents';
 import { topsGet } from '../../services/GetTops';
+import { Footer } from '../../components/Footer/';
 
 export const MainPage = () => {
-  const [data, setData] = useState([]);
   const [recentData, setRecentData] = useState([]);
   const [topData, setTopData] = useState([]);
 
   useEffect(() => {
     async function startData() {
-      setData(await axiosGet());
       setRecentData(await recentGet());
       setTopData(await topsGet());
     }
@@ -28,10 +26,10 @@ export const MainPage = () => {
   const renderPrincipals = () => {
     let randomPrincipalGames = [];
     for (let i = 0; i < 3; i++) {
-      randomPrincipalGames.push(Math.floor(Math.random() * data.length));
+      randomPrincipalGames.push(Math.floor(Math.random() * recentData.length));
     }
 
-    const principalGames = data.filter((game, index) => {
+    const principalGames = recentData.filter((game, index) => {
       for (let i = 0; i < 3; i++) {
         if (index === randomPrincipalGames[i]) return game;
       }
@@ -61,7 +59,7 @@ export const MainPage = () => {
     }
 
     return arrayLastReleases.map(game => (
-      <a className='link' href={game.game_url}>
+      <a key={game.id} className='link' href={game.game_url}>
         <Card className='shadow grow bg-dark mb-3'>
           <Card.Body>
             <Row>
@@ -85,14 +83,9 @@ export const MainPage = () => {
   };
 
   const renderTops = () => {
-    let arrayTopGames = [];
-    for (let i = 0; i < 6; i++) {
-      arrayTopGames.push(topData[i]);
-    }
-
-    return arrayTopGames.map(game => (
-      <a className='link' href={game.game_url}>
-        <Card key={game.id} className='mb-4 grow bg-dark'>
+    return topData.map(game => (
+      <a key={game.id} className='link' href={game.game_url}>
+        <Card className='mb-4 grow bg-dark'>
           <Card.Img src={game.thumbnail} />
         </Card>
       </a>
@@ -105,7 +98,7 @@ export const MainPage = () => {
       <Welcome />
 
       <Container>
-        <Row>{data.length && renderPrincipals()}</Row>
+        <Row>{renderPrincipals()}</Row>
         <br />
         <br />
         <Row>
@@ -118,10 +111,11 @@ export const MainPage = () => {
           </Col>
           <Col lg={4}>
             <h3 style={{ marginBottom: '30px' }}>Mais jogados</h3>
-            {topData.length && renderTops()}
+            {renderTops()}
           </Col>
         </Row>
       </Container>
+      <Footer />
     </>
   );
 };
