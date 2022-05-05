@@ -100,7 +100,7 @@ export const MainPage = () => {
 
   return (
     <>
-      <Header />
+      <Header id='top' />
       <Welcome />
       <Container>
         <Row>{loading ? <Load /> : renderPrincipals()}</Row>

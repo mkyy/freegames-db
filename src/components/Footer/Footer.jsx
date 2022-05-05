@@ -9,23 +9,32 @@ export const Footer = () => {
       <div>
         <Row>
           <Col>
-            <h4>MENU</h4>
             <Row>
-              <a>Link</a>
+              <h4>MENU</h4>
             </Row>
             <Row>
-              <a href=''>Link</a>
+              <a href='#top'>Home</a>
             </Row>
             <Row>
-              <a>Link</a>
+              <a href='#lancamentos'>Lançamentos</a>
+            </Row>
+            <Row>
+              <a href='/games'>Games</a>
             </Row>
           </Col>
           <Col>
-            <h4>LINKS</h4>
-            <a href='https://www.freetogame.com/api-doc'>API</a>
+            <Row>
+              <h4>LINKS</h4>
+            </Row>
+            <Row>
+              <a href='https://www.freetogame.com/api-doc'>API</a>
+            </Row>
+            <Row>
+              <a href='https://mkyyspace.vercel.app'>Mkyy Space</a>
+            </Row>
           </Col>
           <Col>
-            <h1 style={{ textAlign: 'center' }}>Free Games DB</h1>
+            <h1 style={{ textAlign: 'center', color: '#fefefe' }}>Free Games DB</h1>
           </Col>
         </Row>
         <br />
