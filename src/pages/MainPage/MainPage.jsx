@@ -1,6 +1,7 @@
 import { Col, Container, Row, Card, Button } from 'react-bootstrap';
 import { Header } from '../../components/Header/';
 import { Welcome } from '../../components/Welcome/';
+import styled from 'styled-components';
 
 import ChevronRight from 'react-bootstrap-icons/dist/icons/chevron-right';
 
@@ -13,11 +14,16 @@ import { Footer } from '../../components/Footer/';
 export const MainPage = () => {
   const [recentData, setRecentData] = useState([]);
   const [topData, setTopData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    function setFalse() {
+      setLoading(false);
+    }
+
     async function startData() {
-      setRecentData(await recentGet());
       setTopData(await topsGet());
+      setRecentData(await recentGet({ setFalse }));
     }
 
     startData();
@@ -96,22 +102,21 @@ export const MainPage = () => {
     <>
       <Header />
       <Welcome />
-
       <Container>
-        <Row>{renderPrincipals()}</Row>
+        <Row>{loading ? <Load /> : renderPrincipals()}</Row>
         <br />
         <br />
         <Row>
           <Col id='lancamentos' lg={8}>
             <h3 style={{ marginBottom: '30px' }}>Ultimos lançamentos</h3>
-            {recentData.length && renderLastRelease()}
+            {loading ? <Load /> : renderLastRelease()}
             <Button variant='outline-secondary' className=' btn btn-default float-right py-2 pt-1'>
               Mais Jogos <ChevronRight />
             </Button>
           </Col>
           <Col lg={4}>
             <h3 style={{ marginBottom: '30px' }}>Mais jogados</h3>
-            {renderTops()}
+            {loading ? <Load /> : renderTops()}
           </Col>
         </Row>
       </Container>
@@ -119,3 +124,21 @@ export const MainPage = () => {
     </>
   );
 };
+
+const Load = styled.div`
+  width: 100px;
+  height: 100px;
+  border: 25px solid #fff;
+  border-left-color: #0ac5d4;
+  border-radius: 50%;
+  animation-name: loading;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  @keyframes loading {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`;

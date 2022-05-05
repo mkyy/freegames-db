@@ -10,10 +10,11 @@ const options = {
   },
 };
 
-export function recentGet() {
+export function recentGet({ setFalse }) {
   return axios
     .request(options)
     .then(function (response) {
+      setFalse();
       return response.data;
     })
     .catch(function (error) {
