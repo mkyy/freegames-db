@@ -1,14 +1,14 @@
 import styled from 'styled-components';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import Github from 'react-bootstrap-icons/dist/icons/github';
 import Linkedin from 'react-bootstrap-icons/dist/icons/linkedin';
 
 export const Footer = () => {
   return (
     <Wrapper>
-      <div>
-        <Row>
-          <Col>
+      <Container>
+        <Row lg={12} md={12} sm={12}>
+          <Col className='mb-2'>
             <Row>
               <h4>MENU</h4>
             </Row>
@@ -16,13 +16,13 @@ export const Footer = () => {
               <a href='#top'>Home</a>
             </Row>
             <Row>
-              <a href='#lancamentos'>Lançamentos</a>
-            </Row>
-            <Row>
               <a href='/games'>Games</a>
             </Row>
+            <Row>
+              <a href='#lancamentos'>Lançamentos</a>
+            </Row>
           </Col>
-          <Col>
+          <Col className='mb-2'>
             <Row>
               <h4>LINKS</h4>
             </Row>
@@ -44,7 +44,7 @@ export const Footer = () => {
             © mkyy Space( Maiky Roger ) - All rights reserved.
           </Col>
           <Col>
-            <a href='github.com/mkyy'>
+            <a href='https://github.com/mkyy'>
               <Github />
             </a>
             <a href='https://www.linkedin.com/in/maikyroger'>
@@ -52,7 +52,7 @@ export const Footer = () => {
             </a>
           </Col>
         </Row>
-      </div>
+      </Container>
     </Wrapper>
   );
 };

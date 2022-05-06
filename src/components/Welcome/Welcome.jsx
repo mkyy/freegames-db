@@ -1,5 +1,6 @@
 import { WelcomeContainer, WelcomeWrapper } from './style';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 export const Welcome = () => {
   return (
@@ -17,7 +18,9 @@ export const Welcome = () => {
             Ultimos lançamentos
           </Button>
           <Button size='lg' variant='outline-secondary'>
-            Todos os jogos
+            <Link className='link' to={'/games'}>
+              Todos os jogos
+            </Link>
           </Button>
         </div>
       </WelcomeWrapper>

@@ -57,7 +57,8 @@ export const GlobalStyle = createGlobalStyle`
         color: #AAAAAA;
 
         &:hover{
-            color:#AAAAAA;
+        color: #AAAAAA;
+
             cursor:pointer;
         }
     }

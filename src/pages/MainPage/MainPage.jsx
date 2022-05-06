@@ -1,4 +1,4 @@
-import { Col, Container, Row, Card, Button } from 'react-bootstrap';
+import { Col, Container, Row, Card, Button, Spinner } from 'react-bootstrap';
 import { Header } from '../../components/Header/';
 import { Welcome } from '../../components/Welcome/';
 import styled from 'styled-components';
@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { recentGet } from '../../services/GetRecents';
 import { topsGet } from '../../services/GetTops';
 import { Footer } from '../../components/Footer/';
+import { Link } from 'react-router-dom';
 
 export const MainPage = () => {
   const [recentData, setRecentData] = useState([]);
@@ -103,20 +104,23 @@ export const MainPage = () => {
       <Header id='top' />
       <Welcome />
       <Container>
-        <Row>{loading ? <Load /> : renderPrincipals()}</Row>
+        <Row>{loading ? <Spinner animation='border' /> : renderPrincipals()}</Row>
         <br />
         <br />
         <Row>
           <Col id='lancamentos' lg={8}>
             <h3 style={{ marginBottom: '30px' }}>Ultimos lançamentos</h3>
-            {loading ? <Load /> : renderLastRelease()}
+            {loading ? <Spinner animation='border' /> : renderLastRelease()}
             <Button variant='outline-secondary' className=' btn btn-default float-right py-2 pt-1'>
-              Mais Jogos <ChevronRight />
+              <Link className='link' to={'/games'}>
+                {' '}
+                Mais Jogos <ChevronRight />{' '}
+              </Link>
             </Button>
           </Col>
           <Col lg={4}>
             <h3 style={{ marginBottom: '30px' }}>Mais jogados</h3>
-            {loading ? <Load /> : renderTops()}
+            {loading ? <Spinner animation='border' /> : renderTops()}
           </Col>
         </Row>
       </Container>
@@ -124,21 +128,3 @@ export const MainPage = () => {
     </>
   );
 };
-
-const Load = styled.div`
-  width: 100px;
-  height: 100px;
-  border: 25px solid #fff;
-  border-left-color: #0ac5d4;
-  border-radius: 50%;
-  animation-name: loading;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-
-  @keyframes loading {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-`;
