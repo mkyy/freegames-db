@@ -5,3 +5,13 @@ A plataforma freegames-db é um lugar onde você pode encontrar os melhores jogo
 Com uma ferramenta de busca e um filtro para pesquisas, é possivel encontrar os jogos baseados no que melhor se encaixa no seu perfil.
 
 Acesse o site clicando [Aqui](https://freegames-db.vercel.app/)
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+## Documentation
+
+[Free-To-Play Games Database API Docs](https://www.freetogame.com/api-doc)
+
