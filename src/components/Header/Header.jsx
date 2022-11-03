@@ -15,14 +15,16 @@ export const Header = () => {
         <Navbar.Toggle aria-controls='navbarScroll' />
         <Navbar.Collapse id='navbarScroll'>
           <Nav className='my-2 my-lg-0' navbarScroll>
-            <Nav.Link href='/games'>Todos jogos</Nav.Link>
+            <Nav.Link>
+              <Link style={{ textDecoration: 'none', color: 'inherit' }} to='/games'>
+                Todos jogos
+              </Link>
+            </Nav.Link>
             <NavDropdown title={<ThreeDots />}>
-              <NavDropdown.Item href='https://delivery-crud-system.vercel.app/'>
-                Delivery System
-              </NavDropdown.Item>
+              <NavDropdown.Item href='https://mkyy-pokenext.vercel.app/'>PokeNext</NavDropdown.Item>
               <NavDropdown.Item href='https://www.freetogame.com/'>Freetogame</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href='https://mkyyspace.vercel.app'>mkyy space</NavDropdown.Item>
+              <NavDropdown.Item href='https://mkyy.vercel.app'>Confira meu site!</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
