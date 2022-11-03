@@ -13,13 +13,13 @@ export const Footer = () => {
               <h4>MENU</h4>
             </Row>
             <Row>
-              <a href='#top'>Home</a>
+              <a href='/'>Home</a>
             </Row>
             <Row>
               <a href='/games'>Games</a>
             </Row>
             <Row>
-              <a href='#lancamentos'>Lançamentos</a>
+              <a href='/#lancamentos'>Lançamentos</a>
             </Row>
           </Col>
           <Col className='mb-2'>
@@ -27,10 +27,14 @@ export const Footer = () => {
               <h4>LINKS</h4>
             </Row>
             <Row>
-              <a href='https://www.freetogame.com/api-doc'>API</a>
+              <a href='https://www.freetogame.com/api-doc' target='_blank'>
+                API
+              </a>
             </Row>
             <Row>
-              <a href='https://mkyyspace.vercel.app'>Mkyy Space</a>
+              <a href='https://mkyy.vercel.app' target='_blank'>
+                mkyy Website
+              </a>
             </Row>
           </Col>
           <Col>
@@ -41,13 +45,13 @@ export const Footer = () => {
         <hr />
         <Row>
           <Col lg={12} md={12}>
-            © mkyy Space( Maiky Roger ) - All rights reserved.
+            © Maiky Roger - All rights reserved.
           </Col>
           <Col>
-            <a href='https://github.com/mkyy'>
+            <a href='https://github.com/mkyy' target='_blank'>
               <Github />
             </a>
-            <a href='https://www.linkedin.com/in/maikyroger'>
+            <a href='https://www.linkedin.com/in/maikyroger' target='_blank'>
               <Linkedin />
             </a>
           </Col>
