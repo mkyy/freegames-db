@@ -111,12 +111,15 @@ export const MainPage = () => {
           <Col id='lancamentos' lg={8}>
             <h3 style={{ marginBottom: '30px' }}>Ultimos lançamentos</h3>
             {loading ? <Spinner animation='border' /> : renderLastRelease()}
-            <Button variant='outline-secondary' className=' btn btn-default float-right py-2 pt-1'>
-              <Link className='link' to={'/games'}>
+            <Link className='link' to={'/games'}>
+              <Button
+                variant='outline-secondary'
+                className=' btn btn-default float-right py-2 pt-1'
+              >
                 {' '}
                 Mais Jogos <ChevronRight />{' '}
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </Col>
           <Col lg={4}>
             <h3 style={{ marginBottom: '30px' }}>Mais jogados</h3>
